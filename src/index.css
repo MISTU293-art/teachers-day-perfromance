@@ -1,0 +1,2278 @@
+/* ==========================================================================
+   🎨 GIMT Teachers' Day 2026 - Master Stylesheet
+   Clean, light, modern, accessible & responsive design system
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-section: #FBFDFE;
+  --bg-input: #FFFFFF;
+  --border-color: #E2E8F0;
+  --border-light: #EDF2F7;
+  --border-focus: #2563EB;
+  
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-light: #EFF6FF;
+  --primary-border: #DBEAFE;
+  
+  --text-dark: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
+  
+  --error: #DC2626;
+  --error-bg: #FEF2F2;
+  --error-border: #FECACA;
+  
+  --success: #16A34A;
+  --success-bg: #F0FDF4;
+  --success-border: #BBF7D0;
+  
+  /* Typography & Sizing */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+  --shadow-glow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  
+  --transition: all 0.15s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Header Navigation Bar
+   -------------------------------------------------------------------------- */
+.site-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.header-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-logo-badge {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-xs);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.institute-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.department-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.header-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.header-nav-btn:hover {
+  background-color: #F1F5F9;
+  color: var(--text-dark);
+}
+
+.header-nav-btn.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary-border);
+}
+
+.nav-btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.header-date-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Main Content Area
+   -------------------------------------------------------------------------- */
+.main-content {
+  flex: 1;
+  padding: 2.25rem 1.25rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.registration-container {
+  width: 100%;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.app-layout:has(.performance-list-view) .registration-container {
+  max-width: 1000px;
+}
+
+/* --------------------------------------------------------------------------
+   Main Form Card
+   -------------------------------------------------------------------------- */
+.form-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.card-top-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2563EB 0%, #7C3AED 50%, #F59E0B 100%);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge-event {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.badge-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--text-body);
+  background-color: #F1F5F9;
+  border: 1px solid var(--border-color);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.badge-icon {
+  font-size: 0.85rem;
+}
+
+.form-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.form-description {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Stepped Form Layout & Fields
+   -------------------------------------------------------------------------- */
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-section {
+  background-color: var(--bg-section);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 0.65rem;
+}
+
+.section-badge {
+  width: 22px;
+  height: 22px;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.badge-optional {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  background-color: #EDF2F7;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mt-sm {
+  margin-top: 0.35rem;
+}
+
+.mt-xs {
+  margin-top: 0.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.field-req {
+  color: var(--error);
+  font-weight: 700;
+}
+
+/* Inputs with Leading Icon */
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-leading-icon {
+  position: absolute;
+  left: 0.85rem;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.input-leading-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.input-leading-icon.textarea-align {
+  top: 0.85rem;
+}
+
+.text-input {
+  width: 100%;
+  background-color: var(--bg-input);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem 0.7rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.text-input::placeholder {
+  color: #94A3B8;
+}
+
+.text-input:hover {
+  border-color: #CBD5E1;
+}
+
+.text-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+}
+
+.input-box:focus-within .input-leading-icon {
+  color: var(--primary);
+}
+
+.text-input.is-invalid {
+  border-color: var(--error);
+  background-color: #FFFDFD;
+}
+
+.text-input.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.textarea-input {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.field-error {
+  font-size: 0.775rem;
+  color: var(--error);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Academic Year Pill Selector (4 Equal Columns)
+   -------------------------------------------------------------------------- */
+.year-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.year-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.4rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.year-pill-btn:hover:not(:disabled) {
+  border-color: #93C5FD;
+  background-color: #F8FAFC;
+  color: var(--text-dark);
+}
+
+.year-pill-btn.is-active {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.pill-check-indicator {
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Performance Act Cards Grid (3 Columns)
+   -------------------------------------------------------------------------- */
+.act-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.act-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+  font-family: var(--font-sans);
+}
+
+.act-card:hover:not(:disabled) {
+  border-color: #93C5FD;
+  background-color: #F8FAFC;
+  transform: translateY(-1px);
+}
+
+.act-card.is-selected {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+
+.act-emoji {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.act-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.act-card.is-selected .act-label {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.act-check {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   Submit Button
+   -------------------------------------------------------------------------- */
+.submit-wrapper {
+  margin-top: 0.25rem;
+}
+
+.btn-main-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--primary);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+  transition: var(--transition);
+}
+
+.btn-main-submit:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.btn-main-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.submit-arrow {
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-main-submit:hover .submit-arrow {
+  transform: translateX(4px);
+}
+
+.submit-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  border-top-color: #FFFFFF;
+  animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Alerts
+   -------------------------------------------------------------------------- */
+.alert-box {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.alert-danger {
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error);
+}
+
+.alert-svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Success Card View
+   -------------------------------------------------------------------------- */
+.success-card {
+  text-align: center;
+  padding: 2.75rem 2rem;
+}
+
+.success-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #16A34A, #10B981);
+}
+
+.success-icon-wrapper {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 1.25rem;
+  background-color: var(--success-bg);
+  border: 1.5px solid var(--success-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--success);
+}
+
+.success-check-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.success-description {
+  color: var(--text-muted);
+  font-size: 0.925rem;
+  max-width: 480px;
+  margin: 0 auto 1.75rem;
+}
+
+.submission-summary {
+  background-color: #F8FAFC;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 1.75rem;
+}
+
+.summary-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.summary-heading {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.summary-status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--success);
+  background-color: var(--success-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--success-border);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem 1rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.summary-item.full-span {
+  grid-column: 1 / -1;
+}
+
+.summary-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.summary-value {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.badge-category,
+.perf-pill {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.year-pill {
+  display: inline-block;
+  background-color: #F1F5F9;
+  color: #334155;
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.775rem;
+  font-weight: 600;
+}
+
+.success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1.4rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-outline {
+  background-color: #FFFFFF;
+  color: var(--primary);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.4rem;
+}
+
+.btn-outline:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.btn-sm {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+.btn-icon,
+.reset-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Performance List & Table View
+   -------------------------------------------------------------------------- */
+.performance-list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.list-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.export-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-export {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition);
+}
+
+.btn-csv {
+  background-color: #F0FDF4;
+  color: #16A34A;
+  border-color: #BBF7D0;
+}
+
+.btn-csv:hover {
+  background-color: #DCFCE7;
+}
+
+.btn-excel {
+  background-color: #EFF6FF;
+  color: #2563EB;
+  border-color: #BFDBFE;
+}
+
+.btn-excel:hover {
+  background-color: #DBEAFE;
+}
+
+.btn-print {
+  background-color: #F8FAFC;
+  color: #475569;
+  border-color: #CBD5E1;
+}
+
+.btn-print:hover {
+  background-color: #E2E8F0;
+}
+
+.table-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.print-header {
+  display: none;
+}
+
+.table-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background-color: #FAFAFA;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 220px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  width: 15px;
+  height: 15px;
+  color: #94A3B8;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.55rem 2rem 0.55rem 2.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--border-focus);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 0.65rem;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+}
+
+.filter-selects {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-select {
+  padding: 0.55rem 1.75rem 0.55rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 0.85rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.participants-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.participants-table th {
+  background-color: #F8FAFC;
+  color: #475569;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.participants-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #F1F5F9;
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+.participants-table tr:hover td {
+  background-color: #F8FAFC;
+}
+
+.col-index {
+  color: #94A3B8;
+  font-size: 0.775rem;
+  text-align: center;
+}
+
+.col-name {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.col-contact {
+  color: #334155;
+}
+
+.col-details {
+  max-width: 200px;
+  color: #475569;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col-team {
+  max-width: 150px;
+  color: #64748B;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col-date {
+  color: #94A3B8;
+  font-size: 0.775rem;
+  white-space: nowrap;
+}
+
+.table-footer-info {
+  padding: 0.75rem 1rem;
+  background-color: #FAFAFA;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.table-loading-state,
+.table-empty-state {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.empty-icon {
+  width: 42px;
+  height: 42px;
+  color: #CBD5E1;
+}
+
+.table-empty-state h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.table-empty-state p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  max-width: 360px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  background-color: #FFFFFF;
+  padding: 1.25rem;
+  margin-top: auto;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.footer-institute {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.footer-copyright {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Print Styles
+   -------------------------------------------------------------------------- */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 1.5cm;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 10pt;
+  }
+
+  .no-print,
+  .site-header,
+  .site-footer,
+  .list-top-bar,
+  .table-filters,
+  .table-footer-info {
+    display: none !important;
+  }
+
+  .main-content {
+    padding: 0 !important;
+  }
+
+  .registration-container {
+    max-width: 100% !important;
+  }
+
+  .table-card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+  }
+
+  .print-college-title {
+    font-size: 15pt;
+    font-weight: bold;
+  }
+
+  .print-dept-title {
+    font-size: 10.5pt;
+    color: #333333;
+    margin-bottom: 6px;
+  }
+
+  .print-event-title {
+    font-size: 12pt;
+    font-weight: bold;
+  }
+
+  .print-meta {
+    font-size: 8.5pt;
+    color: #555555;
+  }
+
+  .participants-table {
+    width: 100% !important;
+    border: 1px solid #000000 !important;
+  }
+
+  .participants-table th {
+    background-color: #E2E8F0 !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+    font-size: 8.5pt !important;
+    padding: 5px 6px !important;
+  }
+
+  .participants-table td {
+    border: 1px solid #000000 !important;
+    font-size: 8.5pt !important;
+    padding: 4px 6px !important;
+    color: #000000 !important;
+  }
+
+  .perf-pill, .year-pill {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   📱 COMPLETE MOBILE RESPONSIVE DESIGN
+   GIMT Teachers' Day 2026
+   ========================================================================== */
+
+
+/* ==========================================================================
+   TABLET - MAX WIDTH 900px
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  /* ------------------------------
+     HEADER
+  ------------------------------ */
+
+  .header-container {
+    max-width: 100%;
+    padding: 0.7rem 1rem;
+  }
+
+  .institute-name {
+    font-size: 0.85rem;
+  }
+
+  .department-name {
+    font-size: 0.7rem;
+  }
+
+  .header-nav-actions {
+    gap: 0.35rem;
+  }
+
+  .header-nav-btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+
+  /* ------------------------------
+     MAIN
+  ------------------------------ */
+
+  .main-content {
+    padding: 1.75rem 1rem 3rem;
+  }
+
+  .registration-container {
+    max-width: 720px;
+  }
+
+
+  /* ------------------------------
+     FORM CARD
+  ------------------------------ */
+
+  .form-card {
+    padding: 1.75rem;
+  }
+
+
+  /* ------------------------------
+     ACT CARDS
+  ------------------------------ */
+
+  .act-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* ------------------------------
+     PERFORMANCE LIST
+  ------------------------------ */
+
+  .app-layout:has(.performance-list-view) .registration-container {
+    max-width: 100%;
+  }
+
+  .list-top-bar {
+    gap: 0.75rem;
+  }
+
+  .table-filters {
+    align-items: stretch;
+  }
+
+  .search-box {
+    min-width: 200px;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE - MAX WIDTH 640px
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+  /* ------------------------------
+     GLOBAL
+  ------------------------------ */
+
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    max-width: 100%;
+  }
+
+
+  /* ------------------------------
+     HEADER
+  ------------------------------ */
+
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+
+  .header-container {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .header-brand {
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .brand-logo-badge {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.45rem;
+  }
+
+  .brand-text {
+    min-width: 0;
+  }
+
+  .institute-name {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .department-name {
+    font-size: 0.62rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-nav-actions {
+    flex-shrink: 0;
+  }
+
+  .header-nav-btn {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.72rem;
+  }
+
+  .header-nav-btn span {
+    font-size: 0.7rem;
+  }
+
+  .nav-btn-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .header-date-tag {
+    display: none;
+  }
+
+
+  /* ------------------------------
+     MAIN CONTENT
+  ------------------------------ */
+
+  .main-content {
+    width: 100%;
+    padding: 1rem 0.65rem 2rem;
+  }
+
+  .registration-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* ------------------------------
+     FORM CARD
+  ------------------------------ */
+
+  .form-card {
+    width: 100%;
+    padding: 1.25rem 0.9rem;
+    border-radius: var(--radius-md);
+  }
+
+  .card-top-accent {
+    height: 3px;
+  }
+
+
+  /* ------------------------------
+     FORM HEADER
+  ------------------------------ */
+
+  .card-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.1rem;
+  }
+
+  .badge-row {
+    gap: 0.35rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .badge-event,
+  .badge-date {
+    font-size: 0.68rem;
+    padding: 0.22rem 0.5rem;
+  }
+
+  .badge-icon {
+    font-size: 0.7rem;
+  }
+
+  .form-heading {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .form-description {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+
+  /* ------------------------------
+     FORM BODY
+  ------------------------------ */
+
+  .form-body {
+    gap: 1rem;
+  }
+
+  .form-section {
+    width: 100%;
+    padding: 0.9rem 0.75rem;
+    border-radius: var(--radius-sm);
+    gap: 0.7rem;
+  }
+
+  .section-header {
+    gap: 0.45rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .section-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 0.68rem;
+  }
+
+  .section-title {
+    font-size: 0.85rem;
+  }
+
+  .badge-optional {
+    font-size: 0.62rem;
+    padding: 0.1rem 0.35rem;
+  }
+
+
+  /* ------------------------------
+     TWO COLUMN FIELDS -> ONE COLUMN
+  ------------------------------ */
+
+  .grid-2col {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .field-group {
+    width: 100%;
+  }
+
+  .field-label {
+    font-size: 0.78rem;
+  }
+
+  .field-error {
+    font-size: 0.7rem;
+  }
+
+
+  /* ------------------------------
+     INPUTS
+  ------------------------------ */
+
+  .input-box {
+    width: 100%;
+  }
+
+  .text-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.7rem 0.7rem 0.7rem 2.25rem;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .input-leading-icon {
+    left: 0.7rem;
+  }
+
+  .input-leading-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .textarea-input {
+    min-height: 90px;
+  }
+
+
+  /* ------------------------------
+     ACADEMIC YEAR SELECTOR
+  ------------------------------ */
+
+  .year-selector-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .year-pill-btn {
+    min-height: 44px;
+    padding: 0.55rem 0.3rem;
+    font-size: 0.78rem;
+  }
+
+  .pill-check-indicator {
+    font-size: 0.7rem;
+  }
+
+
+  /* ------------------------------
+     PERFORMANCE CARDS
+  ------------------------------ */
+
+  .act-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .act-card {
+    min-width: 0;
+    min-height: 48px;
+    padding: 0.65rem 0.55rem;
+    gap: 0.4rem;
+  }
+
+  .act-emoji {
+    flex-shrink: 0;
+    font-size: 1.05rem;
+  }
+
+  .act-label {
+    min-width: 0;
+    font-size: 0.72rem;
+  }
+
+  .act-check {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+  }
+
+
+  /* ------------------------------
+     SUBMIT BUTTON
+  ------------------------------ */
+
+  .submit-wrapper {
+    width: 100%;
+  }
+
+  .btn-main-submit {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .submit-arrow {
+    font-size: 1rem;
+  }
+
+
+  /* ------------------------------
+     ALERT
+  ------------------------------ */
+
+  .alert-box {
+    align-items: flex-start;
+    padding: 0.7rem 0.75rem;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .alert-svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+
+  /* ==========================================================================
+     SUCCESS CARD
+     ========================================================================== */
+
+  .success-card {
+    width: 100%;
+    padding: 1.5rem 0.9rem;
+    text-align: center;
+  }
+
+  .success-accent-bar {
+    height: 3px;
+  }
+
+  .success-icon-wrapper {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 1rem;
+  }
+
+  .success-check-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .success-title {
+    font-size: 1.2rem;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-description {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+
+  /* ------------------------------
+     SUBMISSION SUMMARY
+  ------------------------------ */
+
+  .submission-summary {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+    padding: 0.9rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .summary-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .summary-heading {
+    font-size: 0.72rem;
+  }
+
+  .summary-status-badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .summary-item {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .summary-item.full-span {
+    grid-column: auto;
+  }
+
+  .summary-label {
+    font-size: 0.68rem;
+  }
+
+  .summary-value {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .badge-category,
+  .perf-pill {
+    font-size: 0.7rem;
+    max-width: 100%;
+  }
+
+  .year-pill {
+    font-size: 0.68rem;
+  }
+
+
+  /* ------------------------------
+     SUCCESS ACTION BUTTONS
+  ------------------------------ */
+
+  .success-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .success-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.7rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .success-actions .btn span {
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .reset-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+
+  /* ==========================================================================
+     PERFORMANCE LIST
+     ========================================================================== */
+
+  .performance-list-view {
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+
+  /* ------------------------------
+     LIST TOP BAR
+  ------------------------------ */
+
+  .list-top-bar {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .list-top-bar > * {
+    width: 100%;
+  }
+
+
+  /* ------------------------------
+     EXPORT BUTTONS
+  ------------------------------ */
+
+  .export-btn-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+
+  .btn-export {
+    width: 100%;
+    min-height: 42px;
+    justify-content: center;
+    padding: 0.5rem 0.3rem;
+    font-size: 0.7rem;
+  }
+
+
+  /* ------------------------------
+     TABLE CARD
+  ------------------------------ */
+
+  .table-card {
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+
+  /* ------------------------------
+     FILTERS
+  ------------------------------ */
+
+  .table-filters {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.8rem;
+    gap: 0.65rem;
+  }
+
+  .search-box {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .search-input {
+    min-height: 42px;
+    font-size: 0.8rem;
+  }
+
+  .filter-selects {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .filter-select {
+    width: 100%;
+    min-height: 42px;
+    font-size: 0.75rem;
+  }
+
+
+  /* ------------------------------
+     RESPONSIVE TABLE
+  ------------------------------ */
+
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .participants-table {
+    min-width: 750px;
+    font-size: 0.78rem;
+  }
+
+  .participants-table th {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.68rem;
+  }
+
+  .participants-table td {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .col-details {
+    max-width: 160px;
+  }
+
+  .col-team {
+    max-width: 120px;
+  }
+
+
+  /* ------------------------------
+     TABLE EMPTY STATE
+  ------------------------------ */
+
+  .table-loading-state,
+  .table-empty-state {
+    padding: 2rem 1rem;
+  }
+
+  .empty-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .table-empty-state h3 {
+    font-size: 1rem;
+  }
+
+  .table-empty-state p {
+    font-size: 0.78rem;
+  }
+
+
+  /* ------------------------------
+     TABLE FOOTER
+  ------------------------------ */
+
+  .table-footer-info {
+    padding: 0.65rem 0.75rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+
+
+  /* ==========================================================================
+     FOOTER
+     ========================================================================== */
+
+  .site-footer {
+    padding: 1rem 0.75rem;
+  }
+
+  .footer-container {
+    width: 100%;
+  }
+
+  .footer-institute {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .footer-copyright {
+    font-size: 0.68rem;
+    line-height: 1.4;
+  }
+}
+
+
+/* ==========================================================================
+   SMALL MOBILE - MAX WIDTH 480px
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  .main-content {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .form-card {
+    padding: 1.15rem 0.75rem;
+    border-radius: 10px;
+  }
+
+  .form-section {
+    padding: 0.8rem 0.65rem;
+  }
+
+  .form-heading {
+    font-size: 1.15rem;
+  }
+
+  .form-description {
+    font-size: 0.78rem;
+  }
+
+
+  /* Header */
+
+  .brand-logo-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .institute-name {
+    font-size: 0.7rem;
+  }
+
+  .department-name {
+    font-size: 0.58rem;
+  }
+
+  .header-nav-btn span {
+    display: none;
+  }
+
+  .header-nav-btn {
+    padding: 0.45rem;
+  }
+
+
+  /* Performance cards */
+
+  .act-cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .act-card {
+    min-height: 46px;
+    padding: 0.55rem 0.45rem;
+  }
+
+  .act-emoji {
+    font-size: 0.95rem;
+  }
+
+  .act-label {
+    font-size: 0.68rem;
+  }
+
+
+  /* Year selector */
+
+  .year-pill-btn {
+    font-size: 0.72rem;
+    padding: 0.5rem 0.2rem;
+  }
+
+
+  /* Success */
+
+  .success-card {
+    padding: 1.25rem 0.7rem;
+  }
+
+  .success-title {
+    font-size: 1.08rem;
+  }
+
+  .success-description {
+    font-size: 0.76rem;
+  }
+
+  .submission-summary {
+    padding: 0.75rem;
+  }
+
+
+  /* Export */
+
+  .export-btn-group {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-export {
+    min-height: 44px;
+    font-size: 0.75rem;
+  }
+
+
+  /* Filters */
+
+  .filter-selects {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   VERY SMALL PHONES - MAX WIDTH 360px
+   ========================================================================== */
+
+@media (max-width: 360px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  .header-container {
+    padding: 0.55rem;
+  }
+
+  .brand-logo-badge {
+    font-size: 0.6rem;
+  }
+
+  .institute-name {
+    font-size: 0.65rem;
+  }
+
+  .department-name {
+    display: none;
+  }
+
+  .main-content {
+    padding: 0.75rem 0.4rem 1.5rem;
+  }
+
+  .form-card {
+    padding: 1rem 0.6rem;
+  }
+
+  .form-section {
+    padding: 0.75rem 0.55rem;
+  }
+
+  .section-title {
+    font-size: 0.78rem;
+  }
+
+  .form-heading {
+    font-size: 1.05rem;
+  }
+
+  .form-description {
+    font-size: 0.74rem;
+  }
+
+  .text-input {
+    min-height: 42px;
+    font-size: 0.8rem;
+  }
+
+  .year-pill-btn {
+    font-size: 0.68rem;
+  }
+
+  .act-card {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .act-emoji {
+    font-size: 0.85rem;
+  }
+
+  .act-label {
+    font-size: 0.63rem;
+  }
+
+  .btn-main-submit {
+    min-height: 46px;
+    font-size: 0.82rem;
+  }
+
+  .success-title {
+    font-size: 1rem;
+  }
+
+  .success-description {
+    font-size: 0.72rem;
+  }
+
+  .success-actions .btn {
+    font-size: 0.72rem;
+  }
+
+  .summary-value {
+    font-size: 0.76rem;
+  }
+}
+
+
+/* ==========================================================================
+   TOUCH DEVICES
+   ========================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .year-pill-btn,
+  .act-card,
+  .btn,
+  .btn-export,
+  .header-nav-btn {
+    min-height: 44px;
+  }
+
+  .year-pill-btn:hover,
+  .act-card:hover,
+  .btn-primary:hover,
+  .btn-outline:hover,
+  .btn-export:hover,
+  .header-nav-btn:hover {
+    transform: none;
+  }
+
+  .text-input {
+    font-size: 16px;
+  }
+
+  .search-input {
+    font-size: 16px;
+  }
+}
+
+
+/* ==========================================================================
+   LANDSCAPE MOBILE
+   ========================================================================== */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+  .main-content {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .form-card {
+    max-width: 760px;
+  }
+
+  .success-card {
+    max-width: 760px;
+  }
+
+  .success-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .success-actions .btn {
+    width: auto;
+    flex: 1;
+  }
+}
+
+
+/* ==========================================================================
+   ACCESSIBILITY - REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
