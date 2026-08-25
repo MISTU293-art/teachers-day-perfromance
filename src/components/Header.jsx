@@ -1,4 +1,4 @@
-import CSEWebsiteLink from "./components/CSEWebsiteLink";
+import CSEWebsiteLink from "../components/CSEWebsiteLink";
 
 export default function Header({ currentView, onViewChange }) {
   return (
